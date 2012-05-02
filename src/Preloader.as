@@ -32,6 +32,8 @@ package {
 			_asset.bar.scaleX = 0;
 			addChild(_asset as DisplayObject);
 			addEventListener(Event.RESIZE, resize);
+			_loader.onProgress.add(onProgress);
+			_asset.type.text = "Config";
 			resize(null);
 		}
 		
@@ -46,7 +48,7 @@ package {
 		
 		protected override function configLoaded(signal:LoaderSignal, child:ILoader):void {
 			_asset.type.text = "Data";
-			_loader.onProgress.add(onProgress);
+			
 			super.configLoaded(signal, child);
 		}
 		
